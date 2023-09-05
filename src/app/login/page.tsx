@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import InputButton from "../components/InputButton";
+import { IoLockOpen, IoMail } from "react-icons/io5";
+import Button from "../components/Button";
 
 export default function Login() {
   return (
@@ -17,13 +19,15 @@ export default function Login() {
         </div>
         <div className="flex-[3] bg-white rounded-r-xl flex-col flex justify-center items-center gap-10">
           <h1 className="font-extrabold text-[#58AF9B] text-4xl">Login</h1>
-          <InputButton placeholder="Insira seu nome aqui!" />
-          <InputButton placeholder="Insira sua senha aqui!" />
+          <InputButton placeholder="Insira seu nome aqui!">
+            <IoMail />
+          </InputButton>
+          <InputButton placeholder="Insira sua senha aqui!">
+            <IoLockOpen />
+          </InputButton>
           <Link href="">Esqueceu sua senha?</Link>
           <Link href="">
-            <button className="w-20 h-10 rounded-xl text-white bg-[#58AF9B]">
-              Enviar
-            </button>
+            <Button>Enviar</Button>
           </Link>
         </div>
       </div>
