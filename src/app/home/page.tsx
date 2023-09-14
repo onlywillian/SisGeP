@@ -6,15 +6,15 @@ export default function Home() {
       <div className="w-full flex gap-8 justify-center">
         <div className="bg-white w-40 p-4">
           <h1 className="font-bold mb-4">Equipamentos</h1>
-          <p className="text-gray">Quantidade: x</p>
+          <p className="">Quantidade: x</p>
         </div>
         <div className="bg-white w-40 p-4">
           <h1 className="font-bold mb-4">Espaços</h1>
-          <p className="text-gray">Quantidade: x</p>
+          <p className="">Quantidade: x</p>
         </div>
         <div className="bg-white w-40 p-4">
           <h1 className="font-bold mb-4">Usuários</h1>
-          <p className="text-gray">Quantidade: x</p>
+          <p className="">Quantidade: x</p>
         </div>
       </div>
     </div>

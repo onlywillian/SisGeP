@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import InputButton from "../components/InputButton";
+import InputButton from "@/components/InputButton";
 import { IoLockOpen, IoMail } from "react-icons/io5";
-import Button from "../components/Button";
+import Button from "@/components/Button";
 
 export default function Login() {
   return (
