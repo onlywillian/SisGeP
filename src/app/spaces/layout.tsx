@@ -1,4 +1,5 @@
 import Aside from "@/components/Aside";
+import { ToastContainerComponent } from "@/components/Notifications";
 
 export default function RootLayout({
   children,
@@ -8,6 +9,7 @@ export default function RootLayout({
   return (
     <main className="flex h-screen">
       <Aside />
+      <ToastContainerComponent />
       {children}
     </main>
   );
