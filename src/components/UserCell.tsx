@@ -8,7 +8,7 @@ interface ICellProps {
     user: any
 }
 
-export default function Cell({ user }: ICellProps) {
+export default function UserCell({ user }: ICellProps) {
   async function handleDeleteIconClick(){
     await fetch("http://localhost:3001/users/delete", {
       method: "delete",

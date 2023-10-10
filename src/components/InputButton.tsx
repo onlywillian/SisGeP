@@ -4,11 +4,13 @@ interface IInputButton {
   value?: string;
   children?: any;
   register?: any;
+  width?: any;
 }
 
-export default function InputButton({ placeholder, children, register, type, value }: IInputButton) {
+export default function InputButton({ placeholder, children, register, type, value, width }: IInputButton) {
   return (
-    <div className="flex flex-row bg-[#EAEAEA] rounded-xl w-[55%]">
+    
+    <div className={`flex flex-row bg-[#EAEAEA] rounded-xl w-[${width ? width : '55%'}]`}>
       {/* Icone */}
       <div className="flex justify-center items-center ml-4">{children}</div>
       <input
