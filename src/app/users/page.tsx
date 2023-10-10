@@ -1,9 +1,9 @@
 import Button from "@/components/Button";
-import Cell from "@/components/Cell";
+import UserCell from "@/components/UserCell";
 import { ToastContainerComponent } from "@/components/Notifications";
 import Link from "next/link";
 
-export default async function Home() {
+export default async function Users() {
   const responseUsers = await fetch("http://localhost:3001/users", {
     cache: "no-cache"
   });
@@ -29,7 +29,7 @@ export default async function Home() {
           </div>
 
           {usersData.Users.map((user: any) => (
-            <Cell user={user} key={user.id}/>
+            <UserCell user={user} key={user.id}/>
           ))}
         </div>
       </div>

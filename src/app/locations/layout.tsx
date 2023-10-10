@@ -8,6 +8,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   const token = cookies().get("nextAuth.token");
 
   if (!token) {
