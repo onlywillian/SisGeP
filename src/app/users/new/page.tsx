@@ -28,7 +28,7 @@ export default function Update() {
       console.log(userToken)
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const response = await fetch("http://localhost:3001/users/new", {
+    const response = await fetch("https://sisgep-api.onrender.com/users/new", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

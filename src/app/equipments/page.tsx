@@ -3,7 +3,7 @@ import Link from "next/link";
 import EquipmentCell from "@/components/EquipmentCell"
 
 export default async function Equipments({equipment}: any) {
-  const responseEquipments = await fetch('http://localhost:3001/equipments',{
+  const responseEquipments = await fetch('https://sisgep-api.onrender.com/equipments',{
     cache: "no-cache"
   });
   const equipmentsData = await responseEquipments.json();

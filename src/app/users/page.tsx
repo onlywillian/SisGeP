@@ -4,7 +4,7 @@ import { ToastContainerComponent } from "@/components/Notifications";
 import Link from "next/link";
 
 export default async function Users() {
-  const responseUsers = await fetch("http://localhost:3001/users", {
+  const responseUsers = await fetch("https://sisgep-api.onrender.com/users", {
     cache: "no-cache"
   });
   const usersData = await responseUsers.json();

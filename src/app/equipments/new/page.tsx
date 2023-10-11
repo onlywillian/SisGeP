@@ -23,14 +23,14 @@ export default function NewEquipment() {
 
   useEffect(() => {
     async function getUsersData() {
-      const response = await fetch("http://localhost:3001/users");
+      const response = await fetch("https://sisgep-api.onrender.com/users");
       const data = await response.json();
 
       setUsers(data.Users);
     }
 
     async function getLocationsData() {
-      const response = await fetch("http://localhost:3001/locations");
+      const response = await fetch("https://sisgep-api.onrender.com/locations");
       const data = await response.json();
 
       setLocations(data.Locations);
@@ -51,7 +51,7 @@ export default function NewEquipment() {
     formData.append("actualLocation", data.actualLocation);
     formData.append("lastUsed", data.lastUser);
 
-    const response = await fetch("http://localhost:3001/equipments/new", {
+    const response = await fetch("https://sisgep-api.onrender.com/equipments/new", {
         method: "POST",
         body: formData,
     });

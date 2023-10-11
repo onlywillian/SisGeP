@@ -16,7 +16,7 @@ export default function EquipmentCell({equipment}: any){
     const [qr_code, setQrcode] = useState(false);
 
     async function handleDeleteIconClick(){
-      const respose = await fetch("http://localhost:3001/equipments/delete", {
+      const respose = await fetch("https://sisgep-api.onrender.com/equipments/delete", {
         method: "delete",
         body: JSON.stringify({
             id: equipment.id

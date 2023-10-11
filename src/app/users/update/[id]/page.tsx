@@ -1,7 +1,7 @@
 import Form from "./Form";
 
 export default async function Update({ params }: any) {
-  const userDataResponse = await fetch(`http://localhost:3001/users/${params.id}`, {
+  const userDataResponse = await fetch(`https://sisgep-api.onrender.com/users/${params.id}`, {
     cache: "no-cache"
   });
   const data = await userDataResponse.json();

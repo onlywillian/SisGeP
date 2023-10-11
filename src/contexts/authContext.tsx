@@ -52,7 +52,7 @@ export default function AuthProvider({ children }: any) {
 
   async function signIn({ username, password }: SignInData) {
     try {
-      const response = await fetch("http://localhost:3001/auth/login", {
+      const response = await fetch("https://sisgep-api.onrender.com/auth/login", {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: {
@@ -83,7 +83,7 @@ export default function AuthProvider({ children }: any) {
 
   async function signUp({ username, password, office }: SignUpData) {
     try {
-      const response = await fetch("http://localhost:3001/auth/register", {
+      const response = await fetch("https://sisgep-api.onrender.com/auth/register", {
         method: "POST",
         body: JSON.stringify({
           username: username,

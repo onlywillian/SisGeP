@@ -13,7 +13,7 @@ interface ICellProps {
 
 export default function LocationCell({ location }: ICellProps) {
   async function handleDeleteIconClick(){
-   const response = await fetch("http://localhost:3001/locations/delete", {
+   const response = await fetch("https://sisgep-api.onrender.com/locations/delete", {
       method: "delete",
       body: JSON.stringify({
         name: location.name

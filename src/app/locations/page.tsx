@@ -3,7 +3,7 @@ import Link from "next/link";
 import  LocationCell from "@/components/LocationCell"
  
 export default async function Locations() {
-  const responseLocations = await fetch("http://localhost:3001/locations", {
+  const responseLocations = await fetch("https://sisgep-api.onrender.com/locations", {
     cache: "no-cache"
   });
   const locationsData = await responseLocations.json();

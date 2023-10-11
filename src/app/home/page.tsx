@@ -1,19 +1,8 @@
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
-
 export default async function Home() {
-    const response = await fetch("http://localhost:3001/home",{
+    const response = await fetch("https://sisgep-api.onrender.com/home",{
       cache: "no-cache"
     });
     const data = await response.json();     
-
-    const token = cookies().getAll()
-
-    console.log(token);
-
-    if (!token) {
-      redirect("/account/login");
-    }
 
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center">
