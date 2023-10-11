@@ -1,10 +1,20 @@
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
+
 export default async function Home() {
     const response = await fetch("http://localhost:3001/home",{
       cache: "no-cache"
     });
     const data = await response.json();     
 
-    console.log(data);
+    const token = cookies().getAll()
+
+    console.log(token);
+
+    if (!token) {
+      redirect("/account/login");
+    }
+
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center">
       <h1 className="text-white text-3xl mb-20 font-bold">Visão Geral</h1>

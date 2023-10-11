@@ -4,6 +4,8 @@ import Button from "@/components/Button";
 import InputButton from "@/components/InputButton";
 import { ToastContainerComponent, notifyError, notifySuccess } from "@/components/Notifications";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { AuthContext } from '@/contexts/authContext'
+import { useContext } from 'react'
 
 type Inputs = {
   username: string,
@@ -13,6 +15,17 @@ type Inputs = {
 
 export default function Update() {
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
+
+  const { isAuthenticated } = useContext(AuthContext);
+
+  console.log(isAuthenticated);
+
+  const userToken = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("nextAuth.token="))
+      ?.split("=")[1];
+
+      console.log(userToken)
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const response = await fetch("http://localhost:3001/users/new", {

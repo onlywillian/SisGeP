@@ -6,15 +6,16 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}) 
+{
   const token = cookies().get("nextAuth.token");
 
   if (!token) {
     redirect("/account/login");
   }
-  
+
   return (
-    <main className="flex">
+    <main className="flex h-screen">
       <Aside />
       {children}
     </main>

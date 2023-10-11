@@ -7,7 +7,6 @@ import Button from "@/components/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "@/contexts/authContext";
-import { ToastContainerComponent } from "@/components/Notifications";
 
 type Inputs = {
   username: string;
@@ -37,7 +36,10 @@ export default function Login() {
         </div>
         <div className="flex-[3] bg-white rounded-r-xl flex-col flex justify-center items-center gap-10">
           <h1 className="font-extrabold text-[#58AF9B] text-4xl">Login</h1>
-          <form className="w-1/2 flex flex-col gap-4 items-center" onSubmit={handleSubmit(onSubmit)}>
+          <form 
+            className="w-1/2 flex flex-col gap-4 items-center" 
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <InputButton 
               width={"100%"}  
               placeholder="Insira seu nome aqui!" 

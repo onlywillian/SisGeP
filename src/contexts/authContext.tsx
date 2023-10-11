@@ -71,7 +71,7 @@ export default function AuthProvider({ children }: any) {
       }
 
       const twoHoursFromNow = new Date(Date.now() + 2 * 60 * 60 * 1000);
-      document.cookie = `nextAuth.token=${token}; expires=${twoHoursFromNow.toUTCString()}`;
+      document.cookie = `nextAuth.token=${token}; path=/; expires=${twoHoursFromNow.toUTCString()}`;
 
       setUser(User);
 
@@ -106,7 +106,7 @@ export default function AuthProvider({ children }: any) {
       }
 
       const twoHoursFromNow = new Date(Date.now() + 2 * 60 * 60 * 1000);
-      document.cookie = `nextAuth.token=${token}; expires=${twoHoursFromNow.toUTCString()}`;
+      document.cookie = `nextAuth.token=${token}; path=/; expires=${twoHoursFromNow.toUTCString()}`;
 
       setUser(User);
       
