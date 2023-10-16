@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import Link from "next/link";
 import EquipmentCell from "@/components/EquipmentCell"
+import Alert from '@/components/Alert'
 
 export default async function Equipments({equipment}: any) {
   const responseEquipments = await fetch('https://sisgep-api.onrender.com/equipments',{
@@ -17,7 +18,7 @@ export default async function Equipments({equipment}: any) {
         </Link>
       </div>
 
-      <div className="w-4/5  justify-center flex flex-col">
+      <div className="w-4/5 max-h-10 overflow-auto justify-center flex flex-col">
         <div className="w-full bg-green px-4 py-2 text-white font-bold flex justify-between">
           <h1 className="w-16">Nome</h1>
           <h1 className="w-32">Descrição</h1>

@@ -73,7 +73,7 @@ export default function Form({ data, id }: IFormProps) {
         
         {errors.photo && <p className="text-red-500">{errors.photo.message}</p>}
         
-        <Button>Atualizar</Button>
+        <Button>Salvar</Button>
       </form>
     </>
   );

@@ -92,7 +92,7 @@ export default function Form({ locations, users, equipment }: IForm) {
               <option value={user.id} key={user.id}>{user.username}</option>
             ))}
           </select>
-          <Button>Cadastrar</Button>
+          <Button>Salvar</Button>
         </form>
     )
 }

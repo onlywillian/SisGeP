@@ -23,7 +23,7 @@ export default async function Users() {
         <div className="w-4/5  justify-center flex flex-col">
           <div className="w-full bg-green px-4 py-2 text-white font-bold flex justify-between">
             <h1>Nome</h1>
-            <h1>office</h1>
+            <h1>Office</h1>
             <h1>Editar</h1>
             <h1>Deletar</h1>
           </div>

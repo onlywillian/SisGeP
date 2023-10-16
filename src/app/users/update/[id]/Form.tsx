@@ -79,7 +79,7 @@ export default function Form({ data, id }: IFormProps) {
         </select>
         {errors.office && <p className="text-red-500">{errors.office.message}</p>}
           
-        <Button>Upideitar</Button>
+        <Button>Salvar</Button>
       </form>
     </>
   );

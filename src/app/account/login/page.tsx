@@ -14,7 +14,7 @@ type Inputs = {
 }
 
 export default function Login() {
-  const { register, handleSubmit } = useForm<Inputs>()
+  const { register, handleSubmit, formState: { isSubmitting, isSubmitted } } = useForm<Inputs>()
 
   const { signIn } = useContext(AuthContext)
 
@@ -56,9 +56,9 @@ export default function Login() {
               <IoLockOpen />
             </InputButton>
             <Link className="text-green" href="/account/register">Ainda não possuo uma conta</Link>
-            <Button>Enviar</Button>
+            {isSubmitting ? <Button disable={true}>Loading</Button> : <Button>Enviar</Button>}
           </form>
-        </div>
+        </div>  
       </div>
     </main>
   );

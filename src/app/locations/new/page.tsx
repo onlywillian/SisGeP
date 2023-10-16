@@ -66,7 +66,7 @@ export default function NewSpace() {
             className="hidden"
             {...register("photo", {required: "Preencha esse campo"})}
           />
-          <Button>Cadastrar</Button>
+          <Button>Salvar</Button>
           
         </form>
       </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogOutButton from "./LogOutButton";
 
 export default function Aside() {
   return (
@@ -9,6 +10,8 @@ export default function Aside() {
         <Link href={"/locations"}>Espaços</Link>
         <Link href={"/users"}>Usuários</Link>
       </div>
+
+      <LogOutButton />
     </div>
   );
 }

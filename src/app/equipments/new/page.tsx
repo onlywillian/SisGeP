@@ -124,7 +124,7 @@ export default function NewEquipment() {
             ))}
           </select>
           {errors.lastUser && <p className="text-red-500">{errors.lastUser.message}</p>}
-          <Button>Cadastrar</Button>
+          <Button>Salvar</Button>
         </form>
       </div>
     </div>

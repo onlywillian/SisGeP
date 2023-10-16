@@ -15,18 +15,7 @@ type Inputs = {
 
 export default function Update() {
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
-
-  const { isAuthenticated } = useContext(AuthContext);
-
-  console.log(isAuthenticated);
-
-  const userToken = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("nextAuth.token="))
-      ?.split("=")[1];
-
-      console.log(userToken)
-
+  
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const response = await fetch("https://sisgep-api.onrender.com/users/new", {
       method: "POST",
@@ -72,7 +61,7 @@ export default function Update() {
           </select>
           {errors.office && <p className="text-red-500">{errors.office.message}</p>}
          
-          <Button>Cadastrar</Button>
+          <Button>Salvar</Button>
         </form>
       </div>
     </div>

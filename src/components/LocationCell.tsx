@@ -1,11 +1,11 @@
 "use client"
 
 import Link from "next/link";
-import { IoSettingsSharp, IoTrashSharp, IoQrCode } from "react-icons/io5";
+import { IoSettingsSharp, IoTrashSharp, IoQrCode, IoImageSharp } from "react-icons/io5";
 import { notifySuccess } from "./Notifications";
-import Image from "next/image";
 import Popup from "@/components/Popup"; 
 import { useState } from "react";
+import { AlertDialog, Button as ButtonRadix, Flex } from "@radix-ui/themes";
 
 interface ICellProps {
     location: any
@@ -36,11 +36,10 @@ export default function LocationCell({ location }: ICellProps) {
       <h1 className="w-16">{location.name}</h1>
       <h1 className="w-32">{location.description}</h1>
       <h1 className="w-16 cursor-pointer">
-        
           <IoQrCode onClick={()=>setQrcode(true)}/>
       </h1> 
       <h1 className="w-16 cursor-pointer" onClick={()=>setPopup(true)}>
-        <Image alt="" width="1000" height="10000" src={location.photo} ></Image>
+        <IoImageSharp />  
       </h1>
       <h1 className="w-16 cursor-pointer">
         <Link href={`/locations/update/${location.id}`}>
@@ -48,7 +47,27 @@ export default function LocationCell({ location }: ICellProps) {
         </Link>
       </h1>
       <h1 className="w-16 cursor-pointer">
-        <IoTrashSharp onClick={handleDeleteIconClick}/>
+      <AlertDialog.Root>
+              <AlertDialog.Trigger>
+                <ButtonRadix><IoTrashSharp /></ButtonRadix>
+              </AlertDialog.Trigger>
+              <AlertDialog.Content style={{ maxWidth: 450 }}>
+                <AlertDialog.Title>Deseja Realmente deletar?</AlertDialog.Title>
+
+                <Flex gap="3" mt="4" justify="end">
+                  <AlertDialog.Cancel>
+                    <ButtonRadix variant="soft" color="gray">
+                      Cancelar
+                    </ButtonRadix>
+                  </AlertDialog.Cancel>
+                  <AlertDialog.Action>
+                    <ButtonRadix variant="solid" color="red" onClick={handleDeleteIconClick}>
+                      Deletar
+                    </ButtonRadix>
+                  </AlertDialog.Action>
+                </Flex>
+              </AlertDialog.Content>
+            </AlertDialog.Root>
       </h1>
       
     </div>

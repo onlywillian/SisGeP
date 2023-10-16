@@ -1,5 +1,5 @@
 "use client"
-
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import { useForm, SubmitHandler } from "react-hook-form";
 import { IoLockOpen, IoPerson, IoHammer } from "react-icons/io5";
 import { useContext } from "react";
@@ -16,7 +16,7 @@ type Inputs = {
 }
 
 export default function Register() {
-  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+  const { register, handleSubmit, formState: { isSubmitting } } = useForm<Inputs>();
 
   const { signUp } = useContext(AuthContext)
 
@@ -32,7 +32,7 @@ export default function Register() {
         </h1>
         <div className="flex-[2] text-white flex flex-col items-center justify-center">
           <h1 className="text-5xl font-extrabold my-10 ">Olá!</h1>
-          <h2 className="text-2xl text-center">
+          <h2 className="text-2xl text-center p-4">
             Seja bem vindo ao Sistema de Gerenciamento de Patrimônio
           </h2>
         </div>
@@ -59,7 +59,8 @@ export default function Register() {
             </select>
             </div>
             <Link className="text-green" href="/account/login">Já possuo conta </Link>
-            <Button>Enviar</Button>
+
+            {isSubmitting ? <Button disable={true}>Loading...</Button> : <Button>Enviar</Button>}
           </form>
         </div>
       </div>

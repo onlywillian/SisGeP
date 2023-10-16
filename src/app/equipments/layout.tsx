@@ -11,7 +11,7 @@ export default function RootLayout({
   const token = cookies().get("nextAuth.token");
 
   if (!token) {
-    redirect("/account/login");
+    redirect("/account/login"); 
   }
   
   return (
