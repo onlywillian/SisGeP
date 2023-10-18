@@ -34,7 +34,7 @@ export default function Form({ locations, users, equipment }: IForm) {
       formData.append("newCurrentLocationId", data.actualLocation);
       formData.append("newLastUser", data.lastUser);
 
-      const response = await fetch("https://sisgep-api.onrender.com/equipments/new", {
+      const response = await fetch(`${process.env.API_URL}/equipments/new`, {
           method: "POST",
           body: formData,
       });

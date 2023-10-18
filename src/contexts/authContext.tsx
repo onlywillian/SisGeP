@@ -23,8 +23,8 @@ type SignUpData = {
 type AuthContextType = {
   user: User | null;
   isAuthenticated: boolean;
-  signIn: (data: SignInData) => Promise<void>;
-  signUp: (data: SignUpData) => Promise<void>;
+  signIn: (data: SignInData) => Promise<boolean|void>;
+  signUp: (data: SignUpData) => Promise<boolean|void>;
 };
 
 export const AuthContext = createContext({} as AuthContextType);
@@ -52,7 +52,8 @@ export default function AuthProvider({ children }: any) {
 
   async function signIn({ username, password }: SignInData) {
     try {
-      const response = await fetch("https://sisgep-api.onrender.com/auth/login", {
+      let positiveResponse = false;
+      const response = await fetch(`${process.env.API_URL}/auth/login`, {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: {
@@ -76,6 +77,8 @@ export default function AuthProvider({ children }: any) {
       setUser(User);
 
       notifySuccess("Login feito com sucesso!","/home")
+      positiveResponse = true
+      return positiveResponse;
     } catch (error: any) {
       console.log(error);
     }
@@ -83,7 +86,8 @@ export default function AuthProvider({ children }: any) {
 
   async function signUp({ username, password, office }: SignUpData) {
     try {
-      const response = await fetch("https://sisgep-api.onrender.com/auth/register", {
+      let positiveResponse = false;
+      const response = await fetch(`${process.env.API_URL}/auth/register`, {
         method: "POST",
         body: JSON.stringify({
           username: username,
@@ -111,6 +115,8 @@ export default function AuthProvider({ children }: any) {
       setUser(User);
       
       notifySuccess("Usuário registrado com sucesso!","/home")
+      positiveResponse = true
+      return positiveResponse;
     } catch (error: any) {
       alert(error);
     }

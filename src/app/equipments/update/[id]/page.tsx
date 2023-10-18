@@ -2,15 +2,15 @@ import { ToastContainerComponent } from "@/components/Notifications";
 import Form from "./Form";
 
 export default async function UpdateEquipment({ params }: any) {
-  const responseLocations = await fetch("https://sisgep-api.onrender.com/locations", {
+  const responseLocations = await fetch(`${process.env.API_URL}/locations`, {
     cache: "no-cache"
   });
   const locations = await responseLocations.json()
-  const responseUsers = await fetch("https://sisgep-api.onrender.com/users", {
+  const responseUsers = await fetch(`${process.env.API_URL}/users`, {
     cache: "no-cache"
   })
   const users = await responseUsers.json()
-  const responseEquipment = await fetch(`https://sisgep-api.onrender.com/equipments/${params.id}`, {
+  const responseEquipment = await fetch(`${process.env.API_URL}/equipments/${params.id}`, {
     cache: "no-cache"
   })
   const equipment = await responseEquipment.json()

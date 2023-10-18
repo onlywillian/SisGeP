@@ -7,6 +7,7 @@ import Button from "@/components/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "@/contexts/authContext";
+import { useState } from "react";
 
 type Inputs = {
   username: string;
@@ -14,12 +15,15 @@ type Inputs = {
 }
 
 export default function Login() {
-  const { register, handleSubmit, formState: { isSubmitting, isSubmitted } } = useForm<Inputs>()
-
+  console.log(process.env);
+  const { register, handleSubmit, formState: { isSubmitting, isSubmitted, } } = useForm<Inputs>()
+  const [ responsePositive,setResponsePositive ] = useState<boolean|void>(false);
   const { signIn } = useContext(AuthContext)
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    return await signIn(data);
+    const responsePositiveOk = await signIn(data);
+    setResponsePositive(responsePositiveOk)
+    return responsePositive;
   }
 
   return (
@@ -56,7 +60,7 @@ export default function Login() {
               <IoLockOpen />
             </InputButton>
             <Link className="text-green" href="/account/register">Ainda não possuo uma conta</Link>
-            {isSubmitting ? <Button disable={true}>Loading</Button> : <Button>Enviar</Button>}
+            {isSubmitting || isSubmitted && responsePositive ? <Button disable={true}>Loading</Button> : <Button>Enviar</Button>}
           </form>
         </div>  
       </div>

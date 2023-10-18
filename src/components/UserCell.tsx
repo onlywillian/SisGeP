@@ -11,7 +11,7 @@ interface ICellProps {
 
 export default function UserCell({ user }: ICellProps) {
   async function handleDeleteIconClick(){
-    await fetch("https://sisgep-api.onrender.com/users/delete", {
+    await fetch(`${process.env.API_URL}/users/delete`, {
       method: "delete",
       body: JSON.stringify({
         id: user.id

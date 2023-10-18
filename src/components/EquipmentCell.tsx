@@ -1,28 +1,22 @@
 "use client"
+
 import Link from "next/link";
 import { IoQrCode, IoSettingsSharp, IoTrashSharp, IoImageSharp } from "react-icons/io5";
 import Popup from "./Popup";
 import { useState } from "react";
 import { notifySuccess } from "./Notifications";
-import Alert from "./Alert";
 import { AlertDialog, Button as ButtonRadix, Flex } from "@radix-ui/themes";
-
-
-interface ICellProps {
-    location: any
-}
-
 
 export default function EquipmentCell({equipment}: any){
     const [popup, setPopup] = useState(false);
     const [qr_code, setQrcode] = useState(false);
 
     async function handleDeleteIconClick(){
-      const respose = await fetch("https://sisgep-api.onrender.com/equipments/delete", {
+      await fetch(`${process.env.API_URL}/equipments/delete`, {
         method: "delete",
         body: JSON.stringify({
             id: equipment.id
-        }),
+        }), 
         headers: {
             "Content-Type": "application/json"
         }
@@ -41,7 +35,7 @@ export default function EquipmentCell({equipment}: any){
             <h1 className="w-32">{equipment.description}</h1>
             <h1 className="w-16">{equipment.Locations.name}</h1>
             <h1 className="w-16">{equipment.Current.name}</h1>
-            <h1 className="w-16">{equipment.Last_Used.username}</h1>
+            <h1 className="w-16">{equipment.Last_Used?.username}</h1>
             <h1 className="w-16 cursor-pointer" onClick={() => setQrcode(true)}>
               <IoQrCode />
             </h1>
@@ -77,7 +71,6 @@ export default function EquipmentCell({equipment}: any){
             </AlertDialog.Root>
             </h1>
           </div>
-        
         </>
     )
 }

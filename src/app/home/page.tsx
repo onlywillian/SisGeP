@@ -1,5 +1,5 @@
 export default async function Home() {
-    const response = await fetch("https://sisgep-api.onrender.com/home",{
+    const response = await fetch(`${process.env.API_URL}/home`,{
       cache: "no-cache"
     });
     const data = await response.json();     

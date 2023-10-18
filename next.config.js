@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        serverActions: true,
-      },
     images: {
         remotePatterns: [
             {
@@ -14,6 +11,9 @@ const nextConfig = {
                 hostname: "**",
             }
         ]
+    },
+    env: {
+        API_URL: 'http://localhost:3001'
     }
 }
 

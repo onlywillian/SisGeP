@@ -21,7 +21,7 @@ export default function NewSpace() {
     formData.append("description", data.description);
     formData.append("photo", data.photo[0]);
 
-    const response = await fetch("https://sisgep-api.onrender.com/locations/new", {
+    const response = await fetch(`${process.env.API_URL}/locations/new`, {
       method: "POST",
       body: formData,
     });

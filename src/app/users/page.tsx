@@ -4,7 +4,7 @@ import { ToastContainerComponent } from "@/components/Notifications";
 import Link from "next/link";
 
 export default async function Users() {
-  const responseUsers = await fetch("https://sisgep-api.onrender.com/users", {
+  const responseUsers = await fetch(`${process.env.API_URL}/users`, {
     cache: "no-cache"
   });
   const usersData = await responseUsers.json();
@@ -20,7 +20,7 @@ export default async function Users() {
           </Link>
         </div>
 
-        <div className="w-4/5  justify-center flex flex-col">
+        <div className="w-4/5 max-h-80 overflow-auto flex flex-col">
           <div className="w-full bg-green px-4 py-2 text-white font-bold flex justify-between">
             <h1>Nome</h1>
             <h1>Office</h1>

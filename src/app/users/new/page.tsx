@@ -17,7 +17,7 @@ export default function Update() {
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
   
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const response = await fetch("https://sisgep-api.onrender.com/users/new", {
+    const response = await fetch(`${process.env.API_URL}/users/new`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

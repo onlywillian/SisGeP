@@ -8,6 +8,7 @@ import { AuthContext } from "@/contexts/authContext";
 import Link from "next/link";
 import InputButton from "@/components/InputButton";
 import Button from "@/components/Button";
+import { useState } from 'react';
 
 type Inputs = {
   username: string;
@@ -16,12 +17,14 @@ type Inputs = {
 }
 
 export default function Register() {
-  const { register, handleSubmit, formState: { isSubmitting } } = useForm<Inputs>();
-
+  const { register, handleSubmit, formState: { isSubmitting,isSubmitted } } = useForm<Inputs>();
+  const [ responsePositive,setResponsePositive ] = useState<boolean|void>(false);
   const { signUp } = useContext(AuthContext)
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    return await signUp(data);
+    const responsePositiveOk = await signUp(data);
+    setResponsePositive(responsePositiveOk)
+    return responsePositive;
   }
 
   return (
@@ -60,7 +63,7 @@ export default function Register() {
             </div>
             <Link className="text-green" href="/account/login">Já possuo conta </Link>
 
-            {isSubmitting ? <Button disable={true}>Loading...</Button> : <Button>Enviar</Button>}
+            {isSubmitting || isSubmitted && responsePositive ? <Button disable={true}>Loading</Button> : <Button>Enviar</Button>}
           </form>
         </div>
       </div>
