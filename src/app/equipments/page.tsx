@@ -1,7 +1,6 @@
 import Button from "@/components/Button";
 import Link from "next/link";
 import EquipmentCell from "@/components/EquipmentCell"
-import Alert from '@/components/Alert'
 
 export default async function Equipments({equipment}: any) {
   const responseEquipments = await fetch(`${process.env.API_URL}/equipments`,{

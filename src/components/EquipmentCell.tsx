@@ -33,8 +33,8 @@ export default function EquipmentCell({equipment}: any){
         <div className="w-full odd:bg-white even:bg-neutral-300 px-4 py-2 text-stone-600 font-bold flex justify-between">
             <h1 className="w-16">{equipment.name}</h1>
             <h1 className="w-32">{equipment.description}</h1>
-            <h1 className="w-16">{equipment.Locations.name}</h1>
-            <h1 className="w-16">{equipment.Current.name}</h1>
+            <h1 className="w-16">{equipment.Locations?.name}</h1>
+            <h1 className="w-16">{equipment.Current?.name}</h1>
             <h1 className="w-16">{equipment.Last_Used?.username}</h1>
             <h1 className="w-16 cursor-pointer" onClick={() => setQrcode(true)}>
               <IoQrCode />
