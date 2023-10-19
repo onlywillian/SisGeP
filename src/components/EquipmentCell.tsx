@@ -12,7 +12,7 @@ export default function EquipmentCell({equipment}: any){
     const [qr_code, setQrcode] = useState(false);
 
     async function handleDeleteIconClick(){
-      await fetch(`${process.env.API_URL}/equipments/delete`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/equipments/delete`, {
         method: "delete",
         body: JSON.stringify({
             id: equipment.id

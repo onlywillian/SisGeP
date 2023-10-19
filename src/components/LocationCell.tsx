@@ -13,7 +13,7 @@ interface ICellProps {
 
 export default function LocationCell({ location }: ICellProps) {
   async function handleDeleteIconClick(){
-   const response = await fetch(`${process.env.API_URL}/locations/delete`, {
+   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations/delete`, {
       method: "delete",
       body: JSON.stringify({
         name: location.name
