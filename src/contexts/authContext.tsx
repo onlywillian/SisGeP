@@ -53,7 +53,7 @@ export default function AuthProvider({ children }: any) {
   async function signIn({ username, password }: SignInData) {
     try {
       let positiveResponse = false;
-      const response = await fetch(`${process.env.API_URL}/auth/login`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: {
@@ -87,7 +87,7 @@ export default function AuthProvider({ children }: any) {
   async function signUp({ username, password, office }: SignUpData) {
     try {
       let positiveResponse = false;
-      const response = await fetch(`${process.env.API_URL}/auth/register`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
         method: "POST",
         body: JSON.stringify({
           username: username,

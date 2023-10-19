@@ -31,7 +31,7 @@ export default function Form({ data, id }: IFormProps) {
   })
 
   const onSubmit: SubmitHandler<Inputs> = async (formData) => {
-   const response = await fetch(`https://sisgep-api.onrender.com/users/update`, {
+   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/update`, {
       method:"PUT",
       body:JSON.stringify({
         id: id,

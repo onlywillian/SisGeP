@@ -1,7 +1,7 @@
 import Form from "./Form";
 
 export default async function Update({ params }: any) {
-  const userDataResponse = await fetch(`${process.env.API_URL}/users/${params.id}`, {
+  const userDataResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${params.id}`, {
     cache: "no-cache"
   });
   const data = await userDataResponse.json();

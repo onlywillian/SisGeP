@@ -39,7 +39,7 @@ export default function Form({ data, id }: IFormProps) {
     formData.append("newDescription", formDataValues.description);
     formData.append("photo", formDataValues.photo[0]);
 
-    const response = await fetch(`${process.env.API_URL}/locations/update`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations/update`, {
       method:"PUT",
       body: formData,
     })

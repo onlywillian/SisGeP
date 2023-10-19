@@ -15,7 +15,6 @@ type Inputs = {
 }
 
 export default function Login() {
-  console.log(process.env);
   const { register, handleSubmit, formState: { isSubmitting, isSubmitted, } } = useForm<Inputs>()
   const [ responsePositive,setResponsePositive ] = useState<boolean|void>(false);
   const { signIn } = useContext(AuthContext)
