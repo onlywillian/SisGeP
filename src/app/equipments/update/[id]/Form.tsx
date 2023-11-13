@@ -29,18 +29,18 @@ export default function Form({ locations, users, equipment }: IForm) {
       formData.append("id", equipment.id);
       formData.append("newName", data.name);
       formData.append("newDescription", data.description);
-      formData.append("newPhoto", data.photo[0]);
-      formData.append("newRootLocation", data.initialLocation);
+      formData.append("photo", data.photo[0]);
+      formData.append("newRootLocationId", data.initialLocation);
       formData.append("newCurrentLocationId", data.actualLocation);
       formData.append("newLastUser", data.lastUser);
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/equipments/new`, {
-          method: "POST",
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/equipments/update`, {
+          method: "PUT",
           body: formData,
       });
       const responseData = await response.json();
       
-      notifySuccess("Equipamento alterado com sucesso", "/equipments")
+      notifySuccess("Equipamento alterado com sucesso", "/equipments");
     };
 
     return (
@@ -69,30 +69,36 @@ export default function Form({ locations, users, equipment }: IForm) {
             className="bg-[#EAEAEA] w-96 p-4 rounded-xl outline-none"
             {...register("initialLocation")}
           >
-            <option value="">Local Inicial</option>
-            {locations.map((location: any) => (
-              <option value={location.id} key={location.id}>{location.name}</option>
-            ))}
+            <option value={equipment.Locations?.id}>{equipment.Locations?.name}</option>
+            {locations.map((location: any) => {
+               if (location.id !== equipment.Locations?.id) {
+                return <option value={location.id} key={location.id}>{location.name}</option>
+              }
+            })}
           </select>
           <select 
             className="bg-[#EAEAEA] w-96 p-4 rounded-xl outline-none"
             {...register("actualLocation")}
           >
-            <option value="">Local Atual</option>
-            {locations?.map((location: any) => (
-              <option value={location.id} key={location.id}>{location.name}</option>
-            ))}
+            <option value={equipment.Current?.id}>{equipment.Current?.name}</option>
+            {locations?.map((location: any) => {
+              if (location.id !== equipment.Current?.id) {
+                return <option value={location.id} key={location.id}>{location.name}</option>
+              }
+            })}
           </select>
           <select 
             className="bg-[#EAEAEA] w-96 p-4 rounded-xl outline-none"
             {...register("lastUser")}
           >
-            <option value="">Último Usuário a utilizar</option>
-            {users?.map((user: any) => (
-              <option value={user.id} key={user.id}>{user.username}</option>
-            ))}
+            <option value={equipment.Last_Used?.id}>{equipment.Last_Used?.username}</option>
+            {users?.map((user: any) => {
+              if (user.id !== equipment.Last_Used?.id) {
+                return <option value={user.id} key={user.id}>{user.username}</option>
+              }
+            })}
           </select>
-          <Button>Salvar</Button>
+          <Button>Salvar</Button> 
         </form>
     )
 }

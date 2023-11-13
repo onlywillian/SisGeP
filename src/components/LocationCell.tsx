@@ -30,11 +30,11 @@ export default function LocationCell({ location }: ICellProps) {
   
   return (
     <>
-    {popup && <Popup src={location.photo} setPopup={setPopup}/>}
-    {qrcode && <Popup src={location.qr_code} setPopup={setQrcode}/>}
+    {popup && <Popup src={location?.photo} setPopup={setPopup}/>}
+    {qrcode && <Popup src={location?.qr_code} setPopup={setQrcode}/>}
     <div className="w-full odd:bg-white even:bg-neutral-300 px-4 py-2 text-stone-600 font-bold flex justify-between">
-      <h1 className="w-16">{location.name}</h1>
-      <h1 className="w-32">{location.description}</h1>
+      <h1 className="w-16">{location?.name}</h1>
+      <h1 className="w-32">{location?.description}</h1>
       <h1 className="w-16 cursor-pointer">
           <IoQrCode onClick={()=>setQrcode(true)}/>
       </h1> 

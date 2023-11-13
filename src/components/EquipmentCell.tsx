@@ -62,7 +62,7 @@ export default function EquipmentCell({equipment}: any){
                     </ButtonRadix>
                   </AlertDialog.Cancel>
                   <AlertDialog.Action>
-                    <ButtonRadix variant="solid" color="red" onClick={handleDeleteIconClick}>
+                    <ButtonRadix className="bg-red-500" onClick={handleDeleteIconClick}>
                       Deletar
                     </ButtonRadix>
                   </AlertDialog.Action>
