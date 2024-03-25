@@ -1,34 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sistema Gerenciador de Patrimônio (SisGeP)
+
+<img src="https://github.com/onlywillian/SisGeP/assets/82155000/6741f408-c26f-4cc8-8fb5-b8a535266f71" width="40%"/>
+
+## About this project
+
+SisGeP is a manager, administrator and controller of assets between different establishments seeking to maintain total control over the user's belongings.
+
+## Why?
+
+This project was created in my internship on high school at EEEP Adriano Nobre, the idea is to create a system to be used at school and in the company where I interned.
+
+## Website Link
+
+If you want to test the website in the Production mode, the link are listed below:
+
+Link to web site: [Visit the site](https://sisgep.vercel.app)
+
+## Funcionalities
+
+- Authentication with login and registration using JWT token
+- Client and Administrator authentication
+- view the list of products with the last user to use the product and its location
+- Register, edit and delete products
+- Logout system
 
 ## Getting Started
 
-First, run the development server:
+Install the SisGeP by following the steps below
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+  $ git clone https://github.com/onlywillian/dealership
+  
+  $ cd SisGeP
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Installing dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  $ npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Or
 
-## Learn More
+```bash
+  $ yarn
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Running
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To connect to the server, follow the steps in the [other repository](https://github.com/onlywillian/dealership-backend)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+  $ npm run dev
+```
 
-## Deploy on Vercel
+## Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- React - Build the native app using JavaScript and React
+- Next.js - Server-side rendering and static website generation for React-based web applications
+- Typescript - Extends JavaScript by adding types to the language
+- Babel - JavaScript compiler
+- ESlint - Linter
+- TailWindCSS - Styles
+- JWTdecode - Decode tokens
+- React Hook Form - Control forms
+- React Query - Control requests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
