@@ -1,6 +1,11 @@
 # Sistema Gerenciador de Patrimônio (SisGeP)
 
 <img src="https://github.com/onlywillian/SisGeP/assets/82155000/6741f408-c26f-4cc8-8fb5-b8a535266f71" width="40%"/>
+<img src="https://github.com/onlywillian/SisGeP/assets/82155000/868a2d82-b03e-47d9-8d8f-f393e1ce6569" width="40%"/>
+<img src="https://github.com/onlywillian/SisGeP/assets/82155000/db7295c9-56c7-4d52-b91e-a2d1910e40cc" width="40%"/>
+<img src="https://github.com/onlywillian/SisGeP/assets/82155000/aaace947-d3e4-481e-88ea-8e10e3bf3e57" width="40%"/>
+<img src="https://github.com/onlywillian/SisGeP/assets/82155000/74a86551-70a6-4882-a7e3-8ce8d001dae0" width="40%"/>
+<img src="https://github.com/onlywillian/SisGeP/assets/82155000/cce1e3e1-5267-4480-a2eb-4d434d80a6cb" width="40%"/>
 
 ## About this project
 
@@ -48,7 +53,7 @@ Or
 
 ### Running
 
-To connect to the server, follow the steps in the [other repository](https://github.com/onlywillian/dealership-backend)
+To connect to the server, follow the steps in the [other repository](https://github.com/onlywillian/SisGeP-Backend)
 
 ```bash
   $ npm run dev
